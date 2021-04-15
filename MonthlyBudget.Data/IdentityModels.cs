@@ -33,6 +33,11 @@ namespace MonthlyBudget.Data
         }
 
         public DbSet<CheckingAccountEntries> Entries { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<UtilityCompany> Companies { get; set; }
+        public DbSet<Description> Descriptions  { get; set; }
+        public DbSet<PayingBy> Payments  { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
