@@ -15,8 +15,9 @@ namespace MonthlyBudget.Data
         
         [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
-        public virtual Category Category { get; set; }                
-        
+        public virtual Category Category { get; set; }
+
+        [Display(Name = "Is this a monthly bill")]
         public bool MonthlyBill { get; set; }       
 
         [ForeignKey(nameof(Description))]
@@ -28,10 +29,11 @@ namespace MonthlyBudget.Data
         public virtual PayingBy PayingBy { get; set; }
 
         [Required]
+        [Display(Name = "Date of purchase")]
         public DateTime ChargeDate { get; set; }
-
+        [Display(Name = "Date transaction cleared the bank")]
         public DateTime DateCleared { get; set; }
-
+        [Display(Name = "Has transaction cleared with the bank")]
         public bool Cleared { get; set; }
         
         public DateTimeOffset CreatedUtc { get; set; }

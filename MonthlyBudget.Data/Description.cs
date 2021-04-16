@@ -12,6 +12,7 @@ namespace MonthlyBudget.Data
         [Key]
         public int DescriptionId { get; set; }
         [Required]
+        [Display(Name = "Description of purchase")]
         public string DescriptionName { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
