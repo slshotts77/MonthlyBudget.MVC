@@ -15,7 +15,6 @@ namespace MonthlyBudget.Data
         [Required]
         [Display(Name = "Example would be Food, Gas, Water, Groceries, etc...")]
         public string CategoryName { get; set; }
-
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
     }

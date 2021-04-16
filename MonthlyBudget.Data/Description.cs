@@ -14,7 +14,6 @@ namespace MonthlyBudget.Data
         [Required]
         [Display(Name = "Description of purchase")]
         public string DescriptionName { get; set; }
-
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
