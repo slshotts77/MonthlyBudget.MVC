@@ -16,5 +16,11 @@ namespace MonthlyBudget.MVC.Controllers
             var model = new PayingByListItem[0];
             return View(model);
         }
+
+        //GET
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }

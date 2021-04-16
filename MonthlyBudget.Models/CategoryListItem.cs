@@ -11,6 +11,6 @@ namespace MonthlyBudget.Models
     {        
         public int CategoryId { get; set; }
         [Display(Name = "Example would be Food, Gas, Water, Groceries, etc...")]
-        public string CategoryName { get; set; }
+        public string CategoryName { get; set; } 
     }
 }

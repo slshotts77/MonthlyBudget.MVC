@@ -16,5 +16,13 @@ namespace MonthlyBudget.MVC.Controllers
             var model = new DescriptionListItem[0];
             return View(model);
         }
-    }
+
+        //GET
+        public ActionResult Create()
+        {
+            return View();
+        }
+    }   
 }
+
+
