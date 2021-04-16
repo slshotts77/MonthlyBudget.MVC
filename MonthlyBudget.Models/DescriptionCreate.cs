@@ -5,15 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MonthlyBudget.Data
+namespace MonthlyBudget.Models
 {
-    public class Description
-    {
-        [Key]
+    public class DescriptionCreate
+    {        
         public int DescriptionId { get; set; }
-        [Required]        
+        [Display(Name = "Description of purchase")]
         public string DescriptionName { get; set; }
-        public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

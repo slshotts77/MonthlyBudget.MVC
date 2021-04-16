@@ -54,7 +54,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryCreate.cs" />
+    <Compile Include="CategoryDetail.cs" />
+    <Compile Include="CategoryEdit.cs" />
+    <Compile Include="CategoryListItem.cs" />
+    <Compile Include="CheckingAccountEntriesCreate.cs" />
+    <Compile Include="CheckingAccountEntriesDetail.cs" />
+    <Compile Include="CheckingAccountEntriesEdit.cs" />
+    <Compile Include="CheckingAccountEntriesListItem.cs" />
+    <Compile Include="DescriptionCreate.cs" />
+    <Compile Include="DescriptionDetail.cs" />
+    <Compile Include="DescriptionEdit.cs" />
+    <Compile Include="DescriptionListItem.cs" />
+    <Compile Include="PayingByCreate.cs" />
+    <Compile Include="PayingByDetail.cs" />
+    <Compile Include="PayingByEdit.cs" />
+    <Compile Include="PayingByListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilityCompanyCreate.cs" />
+    <Compile Include="UtilityCompanyDetail.cs" />
+    <Compile Include="UtilityCompanyEdit.cs" />
+    <Compile Include="UtilityCompanyListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
