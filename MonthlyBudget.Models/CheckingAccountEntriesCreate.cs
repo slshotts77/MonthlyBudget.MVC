@@ -10,8 +10,12 @@ namespace MonthlyBudget.Models
 {
     public class CheckingAccountEntriesCreate
     {
+       
+        public int CategoryId { get; set; }
         [Display(Name = "Is this a monthly bill")]
         public bool MonthlyBill { get; set; }
+        public int DescriptionId { get; set; }
+
         [Required]
         [Display(Name = "Date of purchase")]
         public DateTime ChargeDate { get; set; }

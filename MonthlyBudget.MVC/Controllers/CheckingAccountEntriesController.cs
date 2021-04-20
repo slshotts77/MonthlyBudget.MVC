@@ -23,11 +23,38 @@ namespace MonthlyBudget.MVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CheckingAccountEntriesCreate model)
+        {
+            if (!ModelState.IsValid)
+            {
+            
+            }
+            return View(model);
+            }
+            
 
+        //    var service = CreateNoteService();
 
+        //    if (service.CreateNote(model))
+        //    {
+        //        TempData["SaveResult"] = "Your note was created.";
+        //        return RedirectToAction("Index");
+        //    };
 
-        //-------------------------->
+        //    ModelState.AddModelError("", "Note could not be created.");
 
+        //    return View(model);
+        //}
+
+        //public ActionResult Details(int id)
+        //{
+        //    var svc = CreateNoteService();
+        //    var model = svc.GetNoteById(id);
+
+        //    return View(model);
+        //}
 
         //public ActionResult Edit(int id)
         //{
@@ -95,7 +122,8 @@ namespace MonthlyBudget.MVC.Controllers
         //    var userId = Guid.Parse(User.Identity.GetUserId());
         //    var service = new NoteService(userId);
         //    return service;
+        //}
 
 
-        }
+    }
 }

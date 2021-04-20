@@ -241,16 +241,13 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\CheckingAccountEntries\Index.cshtml" />
     <Content Include="Views\CheckingAccountEntries\Create.cshtml" />
-    <Content Include="Views\UtilityCompany\Create.cshtml" />
-    <Content Include="Views\Description\Index.cshtml" />
-    <Content Include="Views\Description\Create.cshtml" />
-    <Content Include="Views\PayingBy\Index.cshtml" />
-    <Content Include="Views\PayingBy\Create.cshtml" />
-    <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Category\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Category\" />
+    <Folder Include="Views\Description\" />
+    <Folder Include="Views\PayingBy\" />
+    <Folder Include="Views\UtilityCompany\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
