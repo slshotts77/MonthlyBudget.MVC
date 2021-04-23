@@ -9,18 +9,18 @@ namespace MonthlyBudget.MVC.Controllers
 {
     public class UtilityCompanyController : Controller
     {
-        // GET: UtilityCompany
-        [Authorize]
-        public ActionResult Index()
-        {
-            var model = new UtilityCompanyListItem[0];
-            return View(model);
-        }
+        //// GET: UtilityCompany
+        //[Authorize]
+        //public ActionResult Index()
+        //{
+        //    var model = new UtilityCompanyListItem[0];
+        //    return View(model);
+        //}
         
-        //GET
-        public ActionResult Create()
-        {
-            return View();
-        }
+        ////GET
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
     }
 }

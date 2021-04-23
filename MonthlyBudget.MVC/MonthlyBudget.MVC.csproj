@@ -169,7 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\CheckingAccountEntriesController.cs" />
+    <Compile Include="Controllers\CheckingController.cs" />
     <Compile Include="Controllers\DescriptionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -239,8 +239,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\CheckingAccountEntries\Index.cshtml" />
-    <Content Include="Views\CheckingAccountEntries\Create.cshtml" />
+    <Content Include="Views\Checking\Index.cshtml" />
+    <Content Include="Views\Checking\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

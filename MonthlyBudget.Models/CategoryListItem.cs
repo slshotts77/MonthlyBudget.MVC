@@ -9,7 +9,7 @@ namespace MonthlyBudget.Models
 {
     public class CategoryListItem
     {        
-        public int CategoryId { get; set; }
+        // public int CategoryId { get; set; }
         [Display(Name = "Example would be Food, Gas, Water, Groceries, etc...")]
         public string CategoryName { get; set; } 
     }

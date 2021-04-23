@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace MonthlyBudget.Models
 {
-    public class CheckingAccountEntriesCreate
+    public class CheckingEdit
     {
-       
-        public int CategoryId { get; set; }
+        public int EntryId { get; set; }
         [Display(Name = "Is this a monthly bill")]
         public bool MonthlyBill { get; set; }
-        public int DescriptionId { get; set; }
-        public int PayingById { get; set; }
         [Required]
         [Display(Name = "Date of purchase")]
         public DateTime ChargeDate { get; set; }

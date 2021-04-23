@@ -32,7 +32,7 @@ namespace MonthlyBudget.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<CheckingAccountEntries> Entries { get; set; }
+        public DbSet<Checking> Entries { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<UtilityCompany> Companies { get; set; }
         public DbSet<Description> Descriptions  { get; set; }

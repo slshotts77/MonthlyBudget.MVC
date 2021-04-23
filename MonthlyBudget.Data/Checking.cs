@@ -8,30 +8,31 @@ using System.Threading.Tasks;
 
 namespace MonthlyBudget.Data
 {
-    public class UtilityCompany
+    public class Checking
     {
         [Key]
-        public int? UtilityCompanyId { get; set; }
+        public int EntryId { get; set; }
+        [Required]
+        public Guid OwnerId { get; set; }
 
         [ForeignKey("Category")]
         public int? CategoryId { get; set; }
         public virtual Category Category { get; set; }
 
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Website { get; set; }
-        [Required]
-        public string UserLogin { get; set; }
-        [Required]
-        public string UserPassword { get; set; }
-        [Required]
-        public string PhoneNumber { get; set; }
-       
+        public bool MonthlyBill { get; set; }
+
+        [ForeignKey("Description")]
+        public int? DescriptionId { get; set; }
+        public virtual Description Description { get; set; }
+
         [ForeignKey("PayingBy")]
         public int? PayingById { get; set; }
         public virtual PayingBy PayingBy { get; set; }
 
+        [Required]
+        public DateTime ChargeDate { get; set; }
+        public DateTime DateCleared { get; set; }
+        public bool Cleared { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
     }

@@ -10,7 +10,7 @@ namespace MonthlyBudget.Data
     public class Description
     {
         [Key]
-        public int DescriptionId { get; set; }
+        public int? DescriptionId { get; set; }
         [Required]        
         public string DescriptionName { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }

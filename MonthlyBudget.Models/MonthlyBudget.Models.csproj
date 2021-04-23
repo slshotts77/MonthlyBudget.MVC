@@ -58,10 +58,10 @@
     <Compile Include="CategoryDetail.cs" />
     <Compile Include="CategoryEdit.cs" />
     <Compile Include="CategoryListItem.cs" />
-    <Compile Include="CheckingAccountEntriesCreate.cs" />
-    <Compile Include="CheckingAccountEntriesDetail.cs" />
-    <Compile Include="CheckingAccountEntriesEdit.cs" />
-    <Compile Include="CheckingAccountEntriesListItem.cs" />
+    <Compile Include="CheckingEdit.cs" />
+    <Compile Include="CheckingListItem.cs" />
+    <Compile Include="CheckingCreate.cs" />
+    <Compile Include="CheckingDetail.cs" />
     <Compile Include="DescriptionCreate.cs" />
     <Compile Include="DescriptionDetail.cs" />
     <Compile Include="DescriptionEdit.cs" />

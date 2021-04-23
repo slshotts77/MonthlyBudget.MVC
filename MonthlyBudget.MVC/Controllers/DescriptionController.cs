@@ -9,20 +9,18 @@ namespace MonthlyBudget.MVC.Controllers
 {
     public class DescriptionController : Controller
     {
-        // GET: Description
-        [Authorize]
-        public ActionResult Index()
-        {
-            var model = new DescriptionListItem[0];
-            return View(model);
-        }
+        //// GET: Description
+        //[Authorize]
+        //public ActionResult Index()
+        //{
+        //    var model = new DescriptionListItem[0];
+        //    return View(model);
+        //}
 
-        //GET
-        public ActionResult Create()
-        {
-            return View();
-        }
+        ////GET
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
     }   
 }
-
-

@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MonthlyBudget.Data\MonthlyBudget.Data.csproj">
+      <Project>{779b7150-b604-41ab-ae09-f2035f2475f5}</Project>
+      <Name>MonthlyBudget.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonthlyBudget.Models\MonthlyBudget.Models.csproj">
+      <Project>{0c35c11a-d613-47f3-b8ae-bd9b7bbaefdc}</Project>
+      <Name>MonthlyBudget.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

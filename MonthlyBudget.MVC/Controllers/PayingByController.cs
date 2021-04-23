@@ -9,18 +9,18 @@ namespace MonthlyBudget.MVC.Controllers
 {
     public class PayingByController : Controller
     {
-        // GET: PayingBy
-        [Authorize]
-        public ActionResult Index()
-        {
-            var model = new PayingByListItem[0];
-            return View(model);
-        }
+        //// GET: PayingBy
+        //[Authorize]
+        //public ActionResult Index()
+        //{
+        //    var model = new PayingByListItem[0];
+        //    return View(model);
+        //}
 
-        //GET
-        public ActionResult Create()
-        {
-            return View();
-        }
+        ////GET
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
     }
 }

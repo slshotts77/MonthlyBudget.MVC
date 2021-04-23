@@ -11,10 +11,12 @@ namespace MonthlyBudget.Data
     public class Category
     {
         [Key]
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         [Required]
         public string CategoryName { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+        //public ICollection<Checking> Entries { get; set; }
     }
 }

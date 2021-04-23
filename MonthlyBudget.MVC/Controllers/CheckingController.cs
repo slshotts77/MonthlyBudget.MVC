@@ -1,23 +1,29 @@
-﻿using MonthlyBudget.Models;
+﻿using Microsoft.AspNet.Identity;
+using MonthlyBudget.Models;
+using MonthlyBudget.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 
 namespace MonthlyBudget.MVC.Controllers
 {
-    public class CheckingAccountEntriesController : Controller
+    public class CheckingController : Controller
     {
-        // GET: CheckingAccountEntries
+        // GET: Checking
         [Authorize]
         public ActionResult Index()
         {
-            var model = new CheckingAccountEntriesListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CheckingService(userId);
+            var model = service.GetEntries();
+
             return View(model);
         }
-              
-        //GET
+
+        // Get: Create
         public ActionResult Create()
         {
             return View();
@@ -25,15 +31,29 @@ namespace MonthlyBudget.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CheckingAccountEntriesCreate model)
+        public ActionResult Create(CheckingCreate model)
         {
             if (!ModelState.IsValid)
             {
-            
+                return View(model);
             }
+
+            var service = CreateCheckingService();
+
+            if (service.CreateChecking(model))
+            {
+                TempData["SaveResult"] = "Your note was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Note could not be created.");
+
             return View(model);
-            }
-            
+
+            //service.CreateChecking(model);
+
+            //return RedirectToAction("Index");
+        }
 
         //    var service = CreateNoteService();
 
@@ -123,7 +143,14 @@ namespace MonthlyBudget.MVC.Controllers
         //    var service = new NoteService(userId);
         //    return service;
         //}
-
+     
+        private  CheckingService CreateCheckingService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CheckingService(userId);
+            
+            return service;
+        }
 
     }
 }

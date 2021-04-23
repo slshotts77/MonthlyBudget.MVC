@@ -10,7 +10,7 @@ namespace MonthlyBudget.Models
     public class UtilityCompanyDetail
     {        
         public int UtilityCompanyId { get; set; }
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         [Display(Name = "Utility Company Name")]
         public string Name { get; set; }
         [Required]
