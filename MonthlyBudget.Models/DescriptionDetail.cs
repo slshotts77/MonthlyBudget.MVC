@@ -9,7 +9,7 @@ namespace MonthlyBudget.Models
 {
     public class DescriptionDetail
     {        
-        public int DescriptionId { get; set; }
+        public int? DescriptionId { get; set; }
         [Display(Name = "Description of purchase")]
         public string DescriptionName { get; set; }
         [Display(Name = "Created")]

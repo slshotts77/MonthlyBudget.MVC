@@ -9,10 +9,13 @@ namespace MonthlyBudget.Models
 {
     public class CheckingCreate
     {        
-        public int? CategoryId { get; set; }
+        public int? EntryId { get; set; }
         public bool MonthlyBill { get; set; }
         public int? DescriptionId { get; set; }
         public int? PayingById { get; set; }
+      
+        public List<string> ListOfMembers { get; set; }
+
         public DateTime ChargeDate { get; set; }
         public DateTime DateCleared { get; set; }
         public bool Cleared { get; set; }       

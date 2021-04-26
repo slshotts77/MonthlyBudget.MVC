@@ -12,10 +12,11 @@ namespace MonthlyBudget.Models
     {
         public int EntryId { get; set; }
         public Guid OwnerId { get; set; }
+        public int TransactionId { get; set; }
         public int? CategoryId { get; set; }
         [Display(Name = "Is this a monthly bill")]
         public bool MonthlyBill { get; set; }
-        public int DescriptionId { get; set; }
+        public int? DescriptionId { get; set; }
         public string CashOrCard { get; set; }        
         public DateTime ChargeDate { get; set; }
         public DateTime DateCleared { get; set; }

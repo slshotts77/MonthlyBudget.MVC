@@ -9,6 +9,7 @@ namespace MonthlyBudget.Models
 {
     public class PayingByCreate
     {                
+        public string TransactionId { get; set; }
         [Display(Name = "Paid with cash, enter that amount")]
         public decimal CashAmount { get; set; }
         [Display(Name = "Example would be Debit or Credit Card-(last 4 of card")]

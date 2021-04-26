@@ -29,6 +29,8 @@ namespace MonthlyBudget.Data
         public int? PayingById { get; set; }
         public virtual PayingBy PayingBy { get; set; }
 
+        public virtual List<Checking> ListOfEntries { get; set; } = new List<Checking>();
+
         [Required]
         public DateTime ChargeDate { get; set; }
         public DateTime DateCleared { get; set; }

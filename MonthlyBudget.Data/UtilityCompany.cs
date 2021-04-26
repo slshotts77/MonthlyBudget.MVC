@@ -17,6 +17,10 @@ namespace MonthlyBudget.Data
         public int? CategoryId { get; set; }
         public virtual Category Category { get; set; }
 
+        [ForeignKey("Description")]
+        public int? DescriptionId { get; set; }
+        public virtual Description Description { get; set; }
+
         [Required]
         public string Name { get; set; }
         [Required]
@@ -31,6 +35,8 @@ namespace MonthlyBudget.Data
         [ForeignKey("PayingBy")]
         public int? PayingById { get; set; }
         public virtual PayingBy PayingBy { get; set; }
+
+        public virtual List<UtilityCompany> ListOfUtilitiesCompanies { get; set; } = new List<UtilityCompany>();
 
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }

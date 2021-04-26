@@ -11,8 +11,7 @@ namespace MonthlyBudget.Models
     {        
         public int? DescriptionId { get; set; }
         [Display(Name = "Description of purchase")]
-        [MinLength(3, ErrorMessage = "Please enter at least 3 characters.")]
-        [MaxLength(15)]
+       
         public string DescriptionName { get; set; }
     }
 }
