@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MonthlyBudget.Models
 {
     public class PayingByDetail
-    {        
+    {
         public int PayById { get; set; }
         [Display(Name = "Paid with cash, enter that amount")]
         public decimal CashAmount { get; set; }

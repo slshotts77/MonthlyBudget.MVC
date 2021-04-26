@@ -20,6 +20,8 @@ namespace MonthlyBudget.Data
         public string NameOnCard { get; set; }
         public DateTime ExpirationDate { get; set; }
         public int SecurityCode { get; set; }
+        public virtual List<PayingBy> Payments { get; set; } = new List<PayingBy>();
+
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
     }

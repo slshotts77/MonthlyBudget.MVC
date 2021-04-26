@@ -12,18 +12,16 @@ namespace MonthlyBudget.Models
     {
         public int EntryId { get; set; }
         public Guid OwnerId { get; set; }
-        public int TransactionId { get; set; }
-        public int? CategoryId { get; set; }
         [Display(Name = "Is this a monthly bill")]
         public bool MonthlyBill { get; set; }
         public int? DescriptionId { get; set; }
-        public string CashOrCard { get; set; }        
+        public int? PayingById { get; set; }
+        [Display(Name = "Date of purchase")]
         public DateTime ChargeDate { get; set; }
+        [Display(Name = "Date transaction cleared the bank")]
         public DateTime DateCleared { get; set; }
         public bool Cleared { get; set; }
-        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

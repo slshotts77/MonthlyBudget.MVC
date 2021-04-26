@@ -10,12 +10,12 @@ namespace MonthlyBudget.Models
     public class CategoryDetail
     {
         public int? CategoryId { get; set; }
-        [Display(Name = "Example would be Food, Gas, Water, Groceries, etc...")]
+        [Display(Name = "Type of expense")]
         [MinLength(3, ErrorMessage = "Please enter at least 3 characters.")]
-        [MaxLength(15)]
+        [MaxLength(25, ErrorMessage = "Enter shorter name.")]
         public string CategoryName { get; set; }
 
-        public virtual List<string> Description { get; set; }
+        public List<string> ListOfDescriptions { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }

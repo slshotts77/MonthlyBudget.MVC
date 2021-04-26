@@ -9,12 +9,10 @@ namespace MonthlyBudget.Models
 {
     public class CategoryCreate
     {
-        // public int? CategoryId { get; set; }
-        [Display(Name = "Description of purchase")]
+        [Display(Name = "Type of expense")]
         [MinLength(3, ErrorMessage = "Please enter at least 3 characters.")]
-        [MaxLength(15)]
+        [MaxLength(25, ErrorMessage = "Enter shorter name.")]
         public string CategoryName { get; set; }
-        public int? DescriptionId { get; set; }
-
+        public int? CategoryId { get; set; }
     }
 }

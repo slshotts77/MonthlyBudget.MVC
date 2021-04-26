@@ -14,11 +14,7 @@ namespace MonthlyBudget.Data
         public int EntryId { get; set; }
         [Required]
         public Guid OwnerId { get; set; }
-
-        [ForeignKey("Category")]
-        public int? CategoryId { get; set; }
-        public virtual Category Category { get; set; }
-
+               
         public bool MonthlyBill { get; set; }
 
         [ForeignKey("Description")]

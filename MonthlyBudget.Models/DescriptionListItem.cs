@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 namespace MonthlyBudget.Models
 {
     public class DescriptionListItem
-    {        
+    {
         public int? DescriptionId { get; set; }
-        [Display(Name = "Description of purchase")]
-       
+        [Display(Name = "Description of purchase")] 
         public string DescriptionName { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

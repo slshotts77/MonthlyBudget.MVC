@@ -8,10 +8,17 @@ using System.Threading.Tasks;
 namespace MonthlyBudget.Models
 {
     public class CategoryListItem
-    {        
+    {
         public int? CategoryId { get; set; }
-        [Display(Name = "Example would be Food, Gas, Water, Groceries, etc...")]
-        public string CategoryName { get; set; }        
+        [Display(Name = "Type of expense")]
+        public string CategoryName { get; set; }
+
+        public List<string> ListOfCategories { get; set; }
+
+        public List<string> ListOfDescriptions { get; set; }
+
+        public List<string> ListOfUtilityCompany { get; set; }
+
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified")]

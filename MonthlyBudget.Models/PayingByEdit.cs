@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 namespace MonthlyBudget.Models
 {
     public class PayingByEdit
-    {        
+    {
         public int PayById { get; set; }
+        public string CashOrCard { get; set; }
         [Display(Name = "Paid with cash, enter that amount")]
         public decimal CashAmount { get; set; }
         [Display(Name = "Example would be Debit or Credit Card-(last 4 of card")]
@@ -18,6 +19,6 @@ namespace MonthlyBudget.Models
         public string NameOnCard { get; set; }
         public DateTime ExpirationDate { get; set; }
         [Display(Name = "3 digit code on the back of the card")]
-        public int SecurityCode { get; set; }       
+        public int SecurityCode { get; set; }
     }
 }

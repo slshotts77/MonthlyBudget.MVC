@@ -22,6 +22,8 @@ namespace MonthlyBudget.Data
         public virtual List<Category> ListOfCategories { get; set; } = new List<Category>();
 
         public virtual List<Description> ListOfDescriptions { get; set; } = new List<Description>();
+        
+        public virtual List<Description> ListOfUtilityCompanies { get; set; } = new List<Description>();
 
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }

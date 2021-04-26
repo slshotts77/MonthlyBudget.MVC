@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MonthlyBudget.Models
 {
     public class DescriptionDetail
-    {        
+    {
         public int? DescriptionId { get; set; }
         [Display(Name = "Description of purchase")]
         public string DescriptionName { get; set; }

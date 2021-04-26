@@ -8,15 +8,17 @@ using System.Threading.Tasks;
 namespace MonthlyBudget.Models
 {
     public class UtilityCompanyListItem
-    {        
+    {
         public int UtilityCompanyId { get; set; }
         [Display(Name = "Utility Company Name")]
         public string Name { get; set; }
-        [Display(Name = "Example www.website.com")]
+        [Display(Name = "www.what.com")]
         public string Website { get; set; }
         public string UserLogin { get; set; }
         public string UserPassword { get; set; }
-        [Display(Name = "Enter phone number as shown (123) 555-1234")]
+        [Display(Name = "(123) 555-1234")]
         public string PhoneNumber { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
