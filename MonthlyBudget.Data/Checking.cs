@@ -17,6 +17,14 @@ namespace MonthlyBudget.Data
                
         public bool MonthlyBill { get; set; }
 
+        [ForeignKey("Category")]
+        public int? CategoryId { get; set; }
+        public virtual Category Category { get; set; }
+
+        [ForeignKey("UtilityCompany")]
+        public int? UtilityCompanyId { get; set; }
+        public virtual UtilityCompany UtilityCompany { get; set; }
+
         [ForeignKey("Description")]
         public int? DescriptionId { get; set; }
         public virtual Description Description { get; set; }
@@ -25,12 +33,13 @@ namespace MonthlyBudget.Data
         public int? PayingById { get; set; }
         public virtual PayingBy PayingBy { get; set; }
 
-        public virtual List<Checking> ListOfEntries { get; set; } = new List<Checking>();
+        public virtual ICollection<Checking> ListOfEntries { get; set; } = new List<Checking>();
 
         [Required]
         public DateTime ChargeDate { get; set; }
         public DateTime DateCleared { get; set; }
         public bool Cleared { get; set; }
+
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
     }

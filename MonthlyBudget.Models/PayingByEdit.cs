@@ -9,7 +9,6 @@ namespace MonthlyBudget.Models
 {
     public class PayingByEdit
     {
-        public int PayById { get; set; }
         public string CashOrCard { get; set; }
         [Display(Name = "Paid with cash, enter that amount")]
         public decimal CashAmount { get; set; }

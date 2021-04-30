@@ -11,13 +11,10 @@ namespace MonthlyBudget.Models
     public class CheckingListItem
     {
         public int EntryId { get; set; }
-        public Guid OwnerId { get; set; }
+        
         public bool MonthlyBill { get; set; }
-        public int? DescriptionId { get; set; }
-        public int? PayingById { get; set; }
 
-        public List<string> ListOfEntries { get; set; }
-
+        
         [Display(Name = "Date of purchase")]
         public DateTime ChargeDate { get; set; }
         [Display(Name = "Date transaction cleared the bank")]
@@ -25,6 +22,9 @@ namespace MonthlyBudget.Models
         [Display(Name = "Has transaction cleared the bank")]
         public bool Cleared { get; set; }
         [Display(Name = "Created")]
+
+        public virtual ICollection<CheckingListItem> ListOfEntries { get; set; } = new List<CheckingListItem>();
+
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
     }

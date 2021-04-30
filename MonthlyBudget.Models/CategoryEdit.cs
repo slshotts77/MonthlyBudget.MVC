@@ -9,7 +9,6 @@ namespace MonthlyBudget.Models
 {
     public class CategoryEdit
     {
-        public int? CategoryId { get; set; }
         [Display(Name = "Type of expense")]
         [MinLength(3, ErrorMessage = "Please enter at least 3 characters.")]
         [MaxLength(25, ErrorMessage = "Enter shorter name.")]

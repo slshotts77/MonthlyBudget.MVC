@@ -80,5 +80,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MonthlyBudget.Data\MonthlyBudget.Data.csproj">
+      <Project>{779b7150-b604-41ab-ae09-f2035f2475f5}</Project>
+      <Name>MonthlyBudget.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

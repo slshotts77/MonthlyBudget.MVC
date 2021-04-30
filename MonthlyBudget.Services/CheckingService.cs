@@ -29,7 +29,7 @@ namespace MonthlyBudget.Services
                     PayingById = model.PayingById,
                     ChargeDate = model.ChargeDate,
                     DateCleared = model.DateCleared,
-                    Cleared = model.Cleared                    
+                    Cleared = model.Cleared
                 };
 
             using (var ctx = new ApplicationDbContext())

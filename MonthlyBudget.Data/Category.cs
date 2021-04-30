@@ -13,17 +13,12 @@ namespace MonthlyBudget.Data
         [Key]
         public int? CategoryId { get; set; }
         [Required]
+        public Guid OwnerId { get; set; }
+
+        [Required]
         public string CategoryName { get; set; }
-
-        [ForeignKey("Description")]
-        public int? DescriptionId { get; set; }
-        public virtual Description Description { get; set; }
-
-        public virtual List<Category> ListOfCategories { get; set; } = new List<Category>();
-
-        public virtual List<Description> ListOfDescriptions { get; set; } = new List<Description>();
         
-        public virtual List<Description> ListOfUtilityCompanies { get; set; } = new List<Description>();
+        public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
 
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }

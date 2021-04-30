@@ -11,6 +11,7 @@ namespace MonthlyBudget.Models
     {
         public int PayById { get; set; }
         [Display(Name = "Paid with cash, enter that amount")]
+        public string CashOrCard { get; set; }
         public decimal CashAmount { get; set; }
         [Display(Name = "Example would be Debit or Credit Card-(last 4 of card")]
         public string CardType { get; set; }

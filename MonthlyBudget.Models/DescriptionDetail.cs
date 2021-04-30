@@ -12,9 +12,13 @@ namespace MonthlyBudget.Models
         public int? DescriptionId { get; set; }
         [Display(Name = "Description of purchase")]
         public string DescriptionName { get; set; }
+
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+        public List<CategoryListItem> Categories { get; set; }
+
     }
 }
