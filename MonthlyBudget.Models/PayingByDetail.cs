@@ -20,7 +20,9 @@ namespace MonthlyBudget.Models
         public DateTime ExpirationDate { get; set; }
         [Display(Name = "3 digit code on the back of the card")]
         public int SecurityCode { get; set; }
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

@@ -53,10 +53,9 @@ namespace MonthlyBudget.Services
                                     new CheckingListItem
                                     {
                                         EntryId = e.EntryId,
-                                        CategoryId = e.CategoryId,
                                         MonthlyBill = e.MonthlyBill,
-                                        DescriptionId = e.DescriptionId,
-                                        PayingById = e.PayingById,
+                                        //Description = e.Description,
+                                        //PayingBy = e.PayingBy,
                                         ChargeDate = e.ChargeDate,
                                         DateCleared = e.DateCleared,
                                         Cleared = e.Cleared,

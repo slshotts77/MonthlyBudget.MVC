@@ -14,18 +14,24 @@ namespace MonthlyBudget.Models
         
         public bool MonthlyBill { get; set; }
 
-        
+        public string Category { get; set; }
+        public string UtilityComapny { get; set; }
+
+        public string Description { get; set; }
+
+        public string PayingBy { get; set; }
+
         [Display(Name = "Date of purchase")]
         public DateTime ChargeDate { get; set; }
         [Display(Name = "Date transaction cleared the bank")]
         public DateTime DateCleared { get; set; }
         [Display(Name = "Has transaction cleared the bank")]
         public bool Cleared { get; set; }
+        
+
         [Display(Name = "Created")]
-
-        public virtual ICollection<CheckingListItem> ListOfEntries { get; set; } = new List<CheckingListItem>();
-
         public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

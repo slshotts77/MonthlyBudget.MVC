@@ -18,19 +18,19 @@ namespace MonthlyBudget.Data
         public bool MonthlyBill { get; set; }
 
         [ForeignKey("Category")]
-        public int? CategoryId { get; set; }
+        public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
 
         [ForeignKey("UtilityCompany")]
-        public int? UtilityCompanyId { get; set; }
+        public int UtilityCompanyId { get; set; }
         public virtual UtilityCompany UtilityCompany { get; set; }
 
         [ForeignKey("Description")]
-        public int? DescriptionId { get; set; }
+        public int DescriptionId { get; set; }
         public virtual Description Description { get; set; }
 
         [ForeignKey("PayingBy")]
-        public int? PayingById { get; set; }
+        public int PayingById { get; set; }
         public virtual PayingBy PayingBy { get; set; }
 
         public virtual ICollection<Checking> ListOfEntries { get; set; } = new List<Checking>();

@@ -11,114 +11,100 @@ using System.Web.Mvc;
 namespace MonthlyBudget.MVC.Controllers
 {
     [Authorize]
-    public class CategoryController : Controller
+    public class CategoryController :  Controller
     {
         // GET: Category
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new CategoryService(userId);
+            var service = new CategoryService();
             var model = service.GetCategories();
-
             return View(model);
         }
 
-        //GET
+        //Get: Category/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        //Post: Category/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(CategoryCreate model)
         {
             if (!ModelState.IsValid)
-            {
                 return View(model);
-            }
 
             var service = new CategoryService();
 
             if (service.CreateCategory(model))
             {
-                TempData["SaveResult"] = "Your category was created.";
+                TempData["SaveResult"] = "Category Created";
                 return RedirectToAction("Index");
-            };
+            }
 
-            ModelState.AddModelError("", "Category could not be created.");
-
+            ModelState.AddModelError("", "Category could not be added");
             return View(model);
         }
 
+        //Get: Category/Detail
+        public ActionResult Details(int id)
+        {
+            var service = new CategoryService();
+            var category = service.GetCategoryById(id);
+            return View(category);
+        }
+
+        //Get: Category/Edit
         public ActionResult Edit(int id)
         {
             var service = new CategoryService();
             var detail = service.GetCategoryById(id);
             var category = new CategoryEdit() { CategoryName = detail.CategoryName };
-                new CategoryEdit
-                {
-                    CategoryId = detail.CategoryId,
-                    CategoryName = detail.CategoryName
-                };
-
             return View(category);
         }
 
+        //Post: Category/Edit
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, CategoryEdit model)
         {
-            if (!ModelState.IsValid) return View(model);
-
-            if (model.CategoryId != id)
-            {
-                ModelState.AddModelError("", "Id Mismatch");
+            var service = new CategoryService();
+            if (!ModelState.IsValid)
                 return View(model);
-            }
 
-            var service = eCategoryService();
-
-            if (service.UpdateCategory(model))
+            if (service.UpdateCategory(id, model))
             {
-                TempData["SaveResult"] = "Your note was updated.";
+
+                TempData["SaveResult"] = "Category Updated";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your note could not be updated.");
+            ModelState.AddModelError("", "Category could not be updated");
             return View(model);
         }
 
-        [ActionName("Delete")]
+        //Get: Category/Delete
         public ActionResult Delete(int id)
         {
             var service = new CategoryService();
             var category = service.GetCategoryById(id);
-
             return View(category);
         }
 
+        //Post: Category/Delete
         [HttpPost]
         [ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
-            {   
+        {
             var service = new CategoryService();
-    
-            service.DeleteCategory(id);
-    
-            TempData["SaveResult"] = "Your note was deleted";
 
-            return RedirectToAction("Index");
+            if (service.DeleteCategory(id))
+            {
+                TempData["SaveResult"] = "Category Deleted";
+                return RedirectToAction("Index");
             }
+            ModelState.AddModelError("", "Category could not be updated");
+            var model = service.GetCategoryById(id);
+            return View(model);
         }
-
-            //private CategoryService CreateCategoryService()
-            //{
-            //    var userId = Guid.Parse(User.Identity.GetUserId());
-            //    var service = new CategoryService(userId);
-            //    return service;
-            //}
-
     }
 }

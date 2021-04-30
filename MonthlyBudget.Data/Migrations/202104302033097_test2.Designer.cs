@@ -7,13 +7,13 @@ namespace MonthlyBudget.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class testing : IMigrationMetadata
+    public sealed partial class test2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(testing));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(test2));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104230008061_testing"; }
+            get { return "202104302033097_test2"; }
         }
         
         string IMigrationMetadata.Source

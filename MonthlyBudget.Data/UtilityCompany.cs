@@ -11,7 +11,7 @@ namespace MonthlyBudget.Data
     public class UtilityCompany
     {
         [Key]
-        public int? UtilityCompanyId { get; set; }
+        public int UtilityCompanyId { get; set; }
         [Required]
         public Guid OwnerId { get; set; }
 

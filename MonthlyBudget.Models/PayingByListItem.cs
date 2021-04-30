@@ -9,6 +9,7 @@ namespace MonthlyBudget.Models
 {
     public class PayingByListItem
     {
+        public int PayById { get; set; }
         public string CashOrCard { get; set; }
         [Display(Name = "Paid with cash, enter that amount")]
         public decimal CashAmount { get; set; }
@@ -19,8 +20,11 @@ namespace MonthlyBudget.Models
         public DateTime ExpirationDate { get; set; }
         [Display(Name = "3 digit code on the back of the card")]
         public int SecurityCode { get; set; }
-        public List<string> ListOfPayments { get; set; }
+
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+
     }
 }

@@ -3,7 +3,7 @@ namespace MonthlyBudget.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class testing : DbMigration
+    public partial class test : DbMigration
     {
         public override void Up()
         {
@@ -12,39 +12,87 @@ namespace MonthlyBudget.Data.Migrations
                 c => new
                     {
                         CategoryId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
                         CategoryName = c.String(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        Category_CategoryId = c.Int(),
                     })
-                .PrimaryKey(t => t.CategoryId);
+                .PrimaryKey(t => t.CategoryId)
+                .ForeignKey("dbo.Category", t => t.Category_CategoryId)
+                .Index(t => t.Category_CategoryId);
             
             CreateTable(
                 "dbo.UtilityCompany",
                 c => new
                     {
                         UtilityCompanyId = c.Int(nullable: false, identity: true),
-                        CategoryId = c.Int(nullable: false),
+                        OwnerId = c.Guid(nullable: false),
                         Name = c.String(nullable: false),
                         Website = c.String(nullable: false),
                         UserLogin = c.String(nullable: false),
                         UserPassword = c.String(nullable: false),
                         PhoneNumber = c.String(nullable: false),
-                        PayingById = c.Int(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        UtilityCompany_UtilityCompanyId = c.Int(),
                     })
                 .PrimaryKey(t => t.UtilityCompanyId)
+                .ForeignKey("dbo.UtilityCompany", t => t.UtilityCompany_UtilityCompanyId)
+                .Index(t => t.UtilityCompany_UtilityCompanyId);
+            
+            CreateTable(
+                "dbo.Description",
+                c => new
+                    {
+                        DescriptionId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        DescriptionName = c.String(nullable: false),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        Description_DescriptionId = c.Int(),
+                    })
+                .PrimaryKey(t => t.DescriptionId)
+                .ForeignKey("dbo.Description", t => t.Description_DescriptionId)
+                .Index(t => t.Description_DescriptionId);
+            
+            CreateTable(
+                "dbo.Checking",
+                c => new
+                    {
+                        EntryId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        MonthlyBill = c.Boolean(nullable: false),
+                        CategoryId = c.Int(nullable: false),
+                        UtilityCompanyId = c.Int(nullable: false),
+                        DescriptionId = c.Int(nullable: false),
+                        PayingById = c.Int(nullable: false),
+                        ChargeDate = c.DateTime(nullable: false),
+                        DateCleared = c.DateTime(nullable: false),
+                        Cleared = c.Boolean(nullable: false),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        Checking_EntryId = c.Int(),
+                    })
+                .PrimaryKey(t => t.EntryId)
                 .ForeignKey("dbo.Category", t => t.CategoryId, cascadeDelete: true)
+                .ForeignKey("dbo.Description", t => t.DescriptionId, cascadeDelete: true)
+                .ForeignKey("dbo.Checking", t => t.Checking_EntryId)
                 .ForeignKey("dbo.PayingBy", t => t.PayingById, cascadeDelete: true)
+                .ForeignKey("dbo.UtilityCompany", t => t.UtilityCompanyId, cascadeDelete: true)
                 .Index(t => t.CategoryId)
-                .Index(t => t.PayingById);
+                .Index(t => t.UtilityCompanyId)
+                .Index(t => t.DescriptionId)
+                .Index(t => t.PayingById)
+                .Index(t => t.Checking_EntryId);
             
             CreateTable(
                 "dbo.PayingBy",
                 c => new
                     {
                         PayById = c.Int(nullable: false, identity: true),
-                        CashOrCard = c.String(),
+                        OwnerId = c.Guid(nullable: false),
+                        CashOrCard = c.String(nullable: false),
                         CashAmount = c.Decimal(nullable: false, precision: 18, scale: 2),
                         CardType = c.String(),
                         CardNumber = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -55,41 +103,6 @@ namespace MonthlyBudget.Data.Migrations
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
                     })
                 .PrimaryKey(t => t.PayById);
-            
-            CreateTable(
-                "dbo.Description",
-                c => new
-                    {
-                        DescriptionId = c.Int(nullable: false, identity: true),
-                        DescriptionName = c.String(nullable: false),
-                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
-                        ModifiedUtc = c.DateTimeOffset(precision: 7),
-                    })
-                .PrimaryKey(t => t.DescriptionId);
-            
-            CreateTable(
-                "dbo.Checking",
-                c => new
-                    {
-                        EntryId = c.Int(nullable: false, identity: true),
-                        OwnerId = c.Guid(nullable: false),
-                        CategoryId = c.Int(),
-                        MonthlyBill = c.Boolean(nullable: false),
-                        DescriptionId = c.Int(nullable: false),
-                        PayingById = c.Int(nullable: false),
-                        ChargeDate = c.DateTime(nullable: false),
-                        DateCleared = c.DateTime(nullable: false),
-                        Cleared = c.Boolean(nullable: false),
-                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
-                        ModifiedUtc = c.DateTimeOffset(precision: 7),
-                    })
-                .PrimaryKey(t => t.EntryId)
-                .ForeignKey("dbo.Category", t => t.CategoryId)
-                .ForeignKey("dbo.Description", t => t.DescriptionId, cascadeDelete: true)
-                .ForeignKey("dbo.PayingBy", t => t.PayingById, cascadeDelete: true)
-                .Index(t => t.CategoryId)
-                .Index(t => t.DescriptionId)
-                .Index(t => t.PayingById);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -169,28 +182,34 @@ namespace MonthlyBudget.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
+            DropForeignKey("dbo.Checking", "UtilityCompanyId", "dbo.UtilityCompany");
             DropForeignKey("dbo.Checking", "PayingById", "dbo.PayingBy");
+            DropForeignKey("dbo.Checking", "Checking_EntryId", "dbo.Checking");
             DropForeignKey("dbo.Checking", "DescriptionId", "dbo.Description");
             DropForeignKey("dbo.Checking", "CategoryId", "dbo.Category");
-            DropForeignKey("dbo.UtilityCompany", "PayingById", "dbo.PayingBy");
-            DropForeignKey("dbo.UtilityCompany", "CategoryId", "dbo.Category");
+            DropForeignKey("dbo.Description", "Description_DescriptionId", "dbo.Description");
+            DropForeignKey("dbo.UtilityCompany", "UtilityCompany_UtilityCompanyId", "dbo.UtilityCompany");
+            DropForeignKey("dbo.Category", "Category_CategoryId", "dbo.Category");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropIndex("dbo.Checking", new[] { "Checking_EntryId" });
             DropIndex("dbo.Checking", new[] { "PayingById" });
             DropIndex("dbo.Checking", new[] { "DescriptionId" });
+            DropIndex("dbo.Checking", new[] { "UtilityCompanyId" });
             DropIndex("dbo.Checking", new[] { "CategoryId" });
-            DropIndex("dbo.UtilityCompany", new[] { "PayingById" });
-            DropIndex("dbo.UtilityCompany", new[] { "CategoryId" });
+            DropIndex("dbo.Description", new[] { "Description_DescriptionId" });
+            DropIndex("dbo.UtilityCompany", new[] { "UtilityCompany_UtilityCompanyId" });
+            DropIndex("dbo.Category", new[] { "Category_CategoryId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
+            DropTable("dbo.PayingBy");
             DropTable("dbo.Checking");
             DropTable("dbo.Description");
-            DropTable("dbo.PayingBy");
             DropTable("dbo.UtilityCompany");
             DropTable("dbo.Category");
         }

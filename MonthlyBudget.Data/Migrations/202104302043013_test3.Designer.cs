@@ -7,13 +7,13 @@ namespace MonthlyBudget.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class AmandaFix : IMigrationMetadata
+    public sealed partial class test3 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AmandaFix));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(test3));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104230119519_Amanda Fix"; }
+            get { return "202104302043013_test3"; }
         }
         
         string IMigrationMetadata.Source

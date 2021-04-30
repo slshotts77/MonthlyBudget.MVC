@@ -11,11 +11,10 @@ namespace MonthlyBudget.Data
     public class PayingBy
     {
         [Key]
-        public int? PayById { get; set; }
+        public int PayById { get; set; }
         [Required]
         public Guid OwnerId { get; set; }
         [Required]
-
         public string CashOrCard { get; set; }
         public decimal CashAmount { get; set; }
         public string CardType { get; set; }

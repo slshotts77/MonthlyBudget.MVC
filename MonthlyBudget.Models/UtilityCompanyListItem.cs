@@ -18,7 +18,10 @@ namespace MonthlyBudget.Models
         public string UserPassword { get; set; }
         [Display(Name = "(123) 555-1234")]
         public string PhoneNumber { get; set; }
+        
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

@@ -12,13 +12,13 @@ namespace MonthlyBudget.Models
     {
         public int EntryId { get; set; }
         [Display(Name = "Is this a monthly bill")]
-        public int? CategoryId { get; set; }        
         public bool MonthlyBill { get; set; }
-        public int? UtilityComapnyId { get; set; }
-        
-        public List<CheckingListItem> Entries { get; set; }
-        
-        public int? PayingById { get; set; }
+        public string Category { get; set; }   // public int? CategoryId { get; set; }
+        public string UtilityComapny { get; set; }   // public int? UtilityComapnyId { get; set; }
+
+        public string Description { get; set; }   // public List<CheckingListItem> Entries { get; set; }
+
+        public string PayingBy { get; set; }   // public int? PayingById { get; set; }
         [Display(Name = "Date of purchase")]
         
         public DateTime ChargeDate { get; set; }
@@ -26,7 +26,11 @@ namespace MonthlyBudget.Models
         public DateTime DateCleared { get; set; }
         public bool Cleared { get; set; }
 
+        public virtual ICollection<CheckingListItem> ListOfEntries { get; set; } = new List<CheckingListItem>();
+
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

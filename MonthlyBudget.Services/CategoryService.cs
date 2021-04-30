@@ -10,20 +10,12 @@ namespace MonthlyBudget.Services
 {
     public class CategoryService
     {
-        private readonly Guid _userId;
-
-        public CategoryService(Guid userId)
-        {
-            _userId = userId;
-        }
-
         public bool CreateCategory(CategoryCreate model)
         {
-            var entity =
-                new Category()
-                {
-                    CategoryName = model.CategoryName
-                };
+            var entity = new Category()
+            {
+                CategoryName = model.CategoryName
+            };
 
             using (var ctx = new ApplicationDbContext())
             {
@@ -32,68 +24,60 @@ namespace MonthlyBudget.Services
             }
         }
 
+        // Get All
         public List<CategoryListItem> GetCategories()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                return
-                    ctx
-                        .Categories
-                        .Where(e => e.OwnerId == _userId)
-                        .Select(
-                            e =>
-
-                                new CategoryListItem
-                                {
-                                    CategoryId = e.CategoryId,
-                                    CategoryName = e.CategoryName
-                                }).ToList();
+                return ctx
+                    .Categories
+                    .Select(e => new CategoryListItem
+                    {
+                        CategoryId = e.CategoryId,
+                        CategoryName = e.CategoryName,
+                        CreatedUtc = e.CreatedUtc,
+                        ModifiedUtc = e.ModifiedUtc
+                    }).ToList();
             }
         }
 
+        // Get by Id
         public CategoryDetail GetCategoryById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx
-                        .Categories
-                        .Single(e => e.CategoryId == id);
-
+                    .Categories
+                    .Single(e => e.CategoryId == id);
                 var category = new CategoryDetail()
                 {
                     CategoryId = entity.CategoryId,
-                    CategoryName = entity.CategoryName
-                })
-                }
+                    CategoryName = entity.CategoryName                                       
+                };
+
+                return category;
+            }
         }
 
+        // Edit by Id
         public bool UpdateCategory(int id, CategoryEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-                    ctx
-                    .Categories
-                    .Single(e => e.CategoryId == id);
-                    entity.CategoryName
-
+                var entity = ctx.Categories.Single(e => e.CategoryId == id);
                 entity.CategoryName = model.CategoryName;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool DeleteCategory(int CategoryId)
+        // Delete by Id
+        public bool DeleteCategory(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-                    ctx
-                    .Categories
-                    .Single(e => e.CategoryId == CategoryId && e.OwnerId == _userId);
-
+                var entity = ctx.Categories.Single(e => e.CategoryId == id);
                 ctx.Categories.Remove(entity);
-
                 return ctx.SaveChanges() == 1;
             }
         }

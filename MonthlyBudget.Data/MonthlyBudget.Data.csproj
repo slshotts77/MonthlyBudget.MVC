@@ -58,13 +58,17 @@
     <Compile Include="Checking.cs" />
     <Compile Include="Description.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202104230008061_testing.cs" />
-    <Compile Include="Migrations\202104230008061_testing.Designer.cs">
-      <DependentUpon>202104230008061_testing.cs</DependentUpon>
+    <Compile Include="Migrations\202104302030307_test.cs" />
+    <Compile Include="Migrations\202104302030307_test.Designer.cs">
+      <DependentUpon>202104302030307_test.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202104230119519_Amanda Fix.cs" />
-    <Compile Include="Migrations\202104230119519_Amanda Fix.Designer.cs">
-      <DependentUpon>202104230119519_Amanda Fix.cs</DependentUpon>
+    <Compile Include="Migrations\202104302033097_test2.cs" />
+    <Compile Include="Migrations\202104302033097_test2.Designer.cs">
+      <DependentUpon>202104302033097_test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104302043013_test3.cs" />
+    <Compile Include="Migrations\202104302043013_test3.Designer.cs">
+      <DependentUpon>202104302043013_test3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PayingBy.cs" />
@@ -76,11 +80,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104230008061_testing.resx">
-      <DependentUpon>202104230008061_testing.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104302030307_test.resx">
+      <DependentUpon>202104302030307_test.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104230119519_Amanda Fix.resx">
-      <DependentUpon>202104230119519_Amanda Fix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104302033097_test2.resx">
+      <DependentUpon>202104302033097_test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104302043013_test3.resx">
+      <DependentUpon>202104302043013_test3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
