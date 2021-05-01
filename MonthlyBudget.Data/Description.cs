@@ -18,9 +18,6 @@ namespace MonthlyBudget.Data
         
         public string DescriptionName { get; set; }
 
-        public virtual ICollection<Description> Descriptions { get; set; } = new List<Description>();
-        
-        public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public virtual ICollection<Checking> Entries { get; set; } = new List<Checking>();
     }
 }

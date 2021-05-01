@@ -22,8 +22,7 @@ namespace MonthlyBudget.Data
         public string NameOnCard { get; set; }
         public DateTime ExpirationDate { get; set; }
         public int SecurityCode { get; set; }
+        public virtual ICollection<Checking> Entries { get; set; } = new List<Checking>();
 
-        public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

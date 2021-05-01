@@ -17,19 +17,24 @@ namespace MonthlyBudget.Services
             _userId = userId;
         }
 
+        // Create
         public bool CreateChecking(CheckingCreate model)
         {
             var entity =
                 new Checking()
                 {
                     OwnerId = _userId,
-                    CategoryId = model.CategoryId,
+                    CheckingName = model.CheckingName,
                     MonthlyBill = model.MonthlyBill,
+                    ChargeDate = model.CheckingName,
+                    DateCleared = model.DateCleared,
+                    Cleared = model.Cleared,
+                    CreatedUtc = DateTimeOffset.Now,
+                    ModifiedUtc = DateTimeOffset.Now,
+                    CategoryId = model.CategoryId,
+                    UtilityCompanyId = model.UtilityCompanyId,
                     DescriptionId = model.DescriptionId,
                     PayingById = model.PayingById,
-                    ChargeDate = model.ChargeDate,
-                    DateCleared = model.DateCleared,
-                    Cleared = model.Cleared
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -40,6 +45,7 @@ namespace MonthlyBudget.Services
             }
         }
 
+        // Get All
         public IEnumerable<CheckingListItem> GetEntries()
         {
             using (var ctx = new ApplicationDbContext())
@@ -47,25 +53,94 @@ namespace MonthlyBudget.Services
                 var query =
                     ctx
                         .Entries
-                        .Where(e => e.OwnerId == _userId) // Applys filter in SQL
+                        .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
                                     new CheckingListItem
                                     {
-                                        EntryId = e.EntryId,
+                                        CheckingId = e.CheckingId,
+                                        CheckingName = e.CheckingName,
                                         MonthlyBill = e.MonthlyBill,
-                                        //Description = e.Description,
-                                        //PayingBy = e.PayingBy,
                                         ChargeDate = e.ChargeDate,
                                         DateCleared = e.DateCleared,
                                         Cleared = e.Cleared,
-                                        CreatedUtc = e.CreatedUtc
-                                    }
-                        );
-
+                                        CreatedUtc = e.CreatedUtc,
+                                        ModifiedUtc = e.ModifiedUtc,
+                                        UtilityComapny = e.UtilityCompany.UtilityCompanyId + " " + e.UtilityCompany.UtilityName,
+                                        Category = e.Category.CategoryId + " " + e.Category.CategoryName,
+                                        Description = e.Description.DescriptionId + " " + e.Description.DescriptionName,
+                                        PayingBy = e.PayingBy.PayById + " " + e.PayingBy.PayById
+                                    });
+                
                 return query.ToArray();
             }
         }
 
+
+        //Get By ID
+        public CheckingDetail GetEntryById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Entries
+                        .Single(e => e.CheckingId == id && e.OwnerId == _userId);
+                return
+                    new CheckingDetail
+                    {
+                        CheckingId = entity.CheckingId,
+                        CheckingName = entity.CheckingName,
+                        MonthlyBill = entity.MonthlyBill,
+                        ChargeDate = entity.ChargeDate,
+                        DateCleared = entity.DateCleared,
+                        Cleared = entity.Cleared,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc,
+                        UtilityComapny = entity.UtilityCompany.UtilityCompanyId + " " + entity.UtilityCompany.UtilityName,
+                        Category = entity.Category.CategoryId + " " + entity.Category.CategoryName,
+                        Description = entity.Description.DescriptionId + " " + entity.Description.DescriptionName,
+                        PayingBy = entity.PayingBy.PayById + " " + entity.PayingBy.PayById
+                    };
+            }
+        }
+
+
+        //Edit Checking by ID
+        public bool UpdateEntry(CheckingEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Entries
+                        .Single(e => e.CheckingId == model.CheckingId && e.OwnerId == _userId);
+
+                entity.CheckingId = model.CheckingId;
+                entity.CheckingName = model.CheckingName;
+                entity.MonthlyBill = model.MonthlyBill;
+                //entity.UtilityCompanyId = model.UtilityCompanyId;
+                //entity.DescriptionId = model.DescriptionId;
+                //entity.PayingById = model.PayingById;
+                
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        //Delete Checking by ID
+        public bool DeleteEntry(int checkingId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Entries
+                        .Single(e => e.CheckingId == checkingId && e.OwnerId == _userId);
+
+                ctx.Entries.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

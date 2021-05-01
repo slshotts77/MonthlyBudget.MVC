@@ -18,9 +18,10 @@ namespace MonthlyBudget.Data
         [Required]
         public string CategoryName { get; set; }
 
-        public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
-
+        [Required]
         public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public DateTimeOffset ModifiedUtc { get; set; }
+
+        public virtual ICollection<Checking> Entries { get; set; } = new List<Checking>();
     }
 }

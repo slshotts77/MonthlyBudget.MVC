@@ -1,10 +1,7 @@
 ﻿using MonthlyBudget.Data;
 using MonthlyBudget.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonthlyBudget.Services
 {
@@ -36,30 +33,45 @@ namespace MonthlyBudget.Services
                         CategoryId = e.CategoryId,
                         CategoryName = e.CategoryName,
                         CreatedUtc = e.CreatedUtc,
-                        ModifiedUtc = e.ModifiedUtc
                     }).ToList();
             }
         }
 
         // Get by Id
-        public CategoryDetail GetCategoryById(int id)
+        public CategoryDetail GetCategory(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx
                     .Categories
-                    .Single(e => e.CategoryId == id);
+                    .SingleOrDefault(e => e.CategoryId == id);
                 var category = new CategoryDetail()
                 {
                     CategoryId = entity.CategoryId,
-                    CategoryName = entity.CategoryName                                       
+                    CategoryName = entity.CategoryName,
+                    Entries = entity.Entries.Select(e => new Models.CheckingListItem()
+                    {
+                        CheckingName = e.CheckingName,
+                        MonthlyBill = e.MonthlyBill,
+                        ChargeDate = e.ChargeDate,
+                        DateCleared = e.DateCleared,
+                        Cleared = e.Cleared,
+                        CreatedUtc = e.CreatedUtc,
+                        ModifiedUtc = e.ModifiedUtc,
+                        UtilityComapny = e.UtilityCompany.UtilityCompanyId + " " + e.UtilityCompany.UtilityName,
+                        Category = e.Category.CategoryId + " " + e.Category.CategoryName,
+                        Description = e.Description.DescriptionId + " " + e.Description.DescriptionName,
+                        PayingBy = e.PayingBy.PayById + " " + e.PayingBy.PayById
+                    }).ToList()
                 };
 
                 return category;
             }
         }
 
-        // Edit by Id
+
+
+        // Edit Entry by Id
         public bool UpdateCategory(int id, CategoryEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -71,12 +83,12 @@ namespace MonthlyBudget.Services
             }
         }
 
-        // Delete by Id
+        // Delete Entry by Id
         public bool DeleteCategory(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Categories.Single(e => e.CategoryId == id);
+                var entity = ctx.Categories.SingleOrDefault(e => e.CategoryId == id);
                 ctx.Categories.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

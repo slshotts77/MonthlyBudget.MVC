@@ -16,7 +16,7 @@ namespace MonthlyBudget.Data
         public Guid OwnerId { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public string UtilityName { get; set; }
         [Required]
         public string Website { get; set; }
         [Required]
@@ -25,10 +25,7 @@ namespace MonthlyBudget.Data
         public string UserPassword { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
-       
-        public virtual ICollection<UtilityCompany> UtilityCompanies { get; set; } = new List<UtilityCompany>();
-
-        public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        
+        public virtual ICollection<Checking> Entries { get; set; } = new List<Checking>();
     }
 }

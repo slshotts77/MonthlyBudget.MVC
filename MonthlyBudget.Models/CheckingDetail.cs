@@ -10,27 +10,37 @@ namespace MonthlyBudget.Models
 {
     public class CheckingDetail
     {
-        public int EntryId { get; set; }
-        [Display(Name = "Is this a monthly bill")]
+        public int CheckingId { get; set; }
+
+        [Display(Name = "Description of expenditure")]
+        public string CheckingName { get; set; }
+
+        [Display(Name = "Check if this a mothly bill")]
         public bool MonthlyBill { get; set; }
-        public string Category { get; set; }   // public int? CategoryId { get; set; }
-        public string UtilityComapny { get; set; }   // public int? UtilityComapnyId { get; set; }
 
-        public string Description { get; set; }   // public List<CheckingListItem> Entries { get; set; }
-
-        public string PayingBy { get; set; }   // public int? PayingById { get; set; }
         [Display(Name = "Date of purchase")]
-        
-        public DateTime ChargeDate { get; set; }
-        [Display(Name = "Date transaction cleared the bank")]
-        public DateTime DateCleared { get; set; }
+        public String ChargeDate { get; set; }
+        [Display(Name = "Date cleared with bank")]
+        public String DateCleared { get; set; }
+        [Display(Name = "Check if cleared with the bank")]
         public bool Cleared { get; set; }
 
-        public virtual ICollection<CheckingListItem> ListOfEntries { get; set; } = new List<CheckingListItem>();
+        //public virtual ICollection<CheckingListItem> ListOfEntries { get; set; } = new List<CheckingListItem>();
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+
+        public string UtilityComapny { get; set; }
+
+        public string Category { get; set; }
+
+        public string Description { get; set; }
+
+        public string PayingBy { get; set; }
+
+
     }
 }

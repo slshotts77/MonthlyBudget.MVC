@@ -50,7 +50,7 @@ namespace MonthlyBudget.MVC.Controllers
         public ActionResult Details(int id)
         {
             var service = new CategoryService();
-            var category = service.GetCategoryById(id);
+            var category = service.GetCategory(id);
             return View(category);
         }
 
@@ -58,7 +58,7 @@ namespace MonthlyBudget.MVC.Controllers
         public ActionResult Edit(int id)
         {
             var service = new CategoryService();
-            var detail = service.GetCategoryById(id);
+            var detail = service.GetCategory(id);
             var category = new CategoryEdit() { CategoryName = detail.CategoryName };
             return View(category);
         }
@@ -86,7 +86,7 @@ namespace MonthlyBudget.MVC.Controllers
         public ActionResult Delete(int id)
         {
             var service = new CategoryService();
-            var category = service.GetCategoryById(id);
+            var category = service.GetCategory(id);
             return View(category);
         }
 
@@ -103,7 +103,7 @@ namespace MonthlyBudget.MVC.Controllers
                 return RedirectToAction("Index");
             }
             ModelState.AddModelError("", "Category could not be updated");
-            var model = service.GetCategoryById(id);
+            var model = service.GetCategory(id);
             return View(model);
         }
     }

@@ -1,70 +1,130 @@
-﻿//using Microsoft.AspNet.Identity;
-//using MonthlyBudget.Models;
-//using MonthlyBudget.Services;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
-//using System.Web.Mvc;
-//using System.Web.Services.Description;
+﻿using Microsoft.AspNet.Identity;
+using MonthlyBudget.Models;
+using MonthlyBudget.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Services.Description;
 
-//namespace MonthlyBudget.MVC.Controllers
-//{
-//    public class CheckingController : Controller
-//    {
-//        // GET: Checking
-//        [Authorize]
-//        public ActionResult Index()
-//        {
-//            var userId = Guid.Parse(User.Identity.GetUserId());
-//            var service = new CheckingService(userId);
-//            var model = service.GetEntries();
+namespace MonthlyBudget.MVC.Controllers
+{
+    [Authorize]
+    [RoutePrefix("api/Entry")]
+    public class CheckingController : Controller
+    {
+        // GET: Checking Index
+        public ActionResult Index()
+        {
+            var service = CreateCheckingService();
+            var model = service.GetEntries();
+            return View(model);
+        }
+        //Get: Checking/Detail/{id}
+        public ActionResult Details(int id)
+        {
+            var svc = CreateCheckingService();
+            var model = svc.GetEntryById(id);
 
-//            return View(model);
-//        }
+            return View(model);
+        }
 
-//        // Get: Create
-//        public ActionResult Create()
-//        {
-//            return View();
-//        }
+        //Get: Checking/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public ActionResult Create(CheckingCreate model)
-//        {
-//            if (!ModelState.IsValid)
-//            {
-//                return View(model);
-//            }
+        //Post: Checking/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CheckingCreate model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
 
-//            var service = CreateCheckingService();
+            var service = CreateCheckingService();
+            if (service.CreateChecking(model))
+            {
+                ViewBag.SaveResult = "Your entry was created";
+                return RedirectToAction("Index");
+            }
 
-//            if (service.CreateChecking(model))
-//            {
-//                TempData["SaveResult"] = "Your note was created.";
-//                return RedirectToAction("Index");
-//            };
+            ModelState.AddModelError("", "Entry could not be created.");
+            return View(model);
+        }
 
-//            ModelState.AddModelError("", "Note could not be created.");
+        //Get: Checking/Edit/{id}
+        public ActionResult Edit(int id)
+        {
+            var service = CreateCheckingService();
+            var detail = service.GetEntryById(id);
+            var model =
+                new CheckingEdit
+                {
+                    CheckingId = detail.CheckingId,
+                    CheckingName = detail.CheckingName,
+                    MonthlyBill = detail.MonthlyBill,
+                    ChargeDate = detail.ChargeDate,
+                    Cleared = detail.Cleared
+                };
+         return View(model);
+        }
+        
+        //Post: Checking/Edit/{id}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, CheckingEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
 
-//            return View(model);
+            if (model.CheckingId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
 
-//            //service.CreateChecking(model);
+            var service = CreateCheckingService();
 
-//            //return RedirectToAction("Index");
-//        }
+            if (service.UpdateEntry(model))
+            {
+                TempData["SaveResult"] = "Your entry was updated.";
+                return RedirectToAction("Index");
+            }
 
-//        var service = CreateNoteService();
+            ModelState.AddModelError("", "Your entry could not be updated.");
+            return View(model);
+        }
 
-//            if (service.CreateNote(model))
-//            {
-//                TempData["SaveResult"] = "Your note was created.";
-//                return RedirectToAction("Index");
-//    };
+        //Get: Checking/Delete/{id}
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateCheckingService();
+            var model = svc.GetEntryById(id);
 
+            return View(model);
+        }
 
-//    ModelState.AddModelError("", "Note could not be created.");
+        //Post: Checking/Delete/{id}
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateCheckingService();
 
-//            return View(model);
-//}
+            service.DeleteEntry(id);
+
+            TempData["SaveResult"] = "Your entry was deleted";
+
+            return RedirectToAction("Index");
+        }
+        private CheckingService CreateCheckingService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            return new CheckingService(userId);
+        }
+    }
+}

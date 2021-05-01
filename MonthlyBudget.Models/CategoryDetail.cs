@@ -16,12 +16,12 @@ namespace MonthlyBudget.Models
         [MinLength(3, ErrorMessage = "Please enter at least 3 characters.")]
         [MaxLength(25, ErrorMessage = "Enter shorter name.")]
         public string CategoryName { get; set; }
-       
-        // public List<CategoryListItem> Categories { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public DateTimeOffset ModifiedUtc { get; set; }
+
+        public List<CheckingListItem> Entries { get; set; }   
     }
 }

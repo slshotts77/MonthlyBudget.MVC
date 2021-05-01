@@ -14,5 +14,10 @@ namespace MonthlyBudget.Models
         public string DescriptionName { get; set; }
 
         public List<DescriptionListItem> Descriptions { get; set; }
+
+        [Display(Name = "Created")]
+        public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Modified")]
+        public DateTimeOffset ModifiedUtc { get; set; }
     }
 }
