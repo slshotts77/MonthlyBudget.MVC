@@ -9,28 +9,31 @@ namespace MonthlyBudget.Models
 {
     public class CheckingCreate
     {
-        [Display(Name = "Type of expense")]
+        [Display(Name = "Expense Description")]
         [MinLength(5, ErrorMessage = "Please enter at least 3 characters.")]
         [MaxLength(50, ErrorMessage = "Enter shorter name.")]
         public string CheckingName { get; set; }
-        
-        [Display(Name = "Check if this a mothly bill")]
+        [Display(Name = "Reoccuring?")]
         public bool MonthlyBill { get; set; }
-    
         [Required]
-        [Display(Name = "Date of purchase")]
+        [Display(Name = "Purchase Date")]
         public string ChargeDate { get; set; }
-
-        [Display(Name = "Date cleared with bank")]
+        [Display(Name = "Date Bank Cleared")]
         public string DateCleared { get; set; }
-        
-        [Display(Name = "Check if cleared with the bank")]
+        [Display(Name = "Bank Note Cleared")]
         public bool Cleared { get; set; }
-        
+
+
+        [Required]
         public int UtilityCompanyId { get; set; }
+
+        [Required]
         public int CategoryId { get; set; }
+
+        [Required]
         public int DescriptionId { get; set; }
+
+        [Required]
         public int PayingById { get; set; }
     }
 }
-
