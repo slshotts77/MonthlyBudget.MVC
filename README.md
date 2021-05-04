@@ -36,13 +36,7 @@
     This is a collection of challenges presented as the final project for the Red Badge section of the Software Development course at ElevenFifty Academy.
     <br />
     <a href="https://elevenfifty.instructure.com/courses/607/assignments/11229"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/slshotts/MonthlyBudget.MVC">View Demo</a>
-    ·
-    <a href="https://github.com/github.com/slshotts/MonthlyBudget.MVC/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github.com/slshotts/MonthlyBudget.MVC/issues">Request Feature</a>
+    <br />  
   </p>
 </p>
 
@@ -60,13 +54,12 @@
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+      <ul>        
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    
+    
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
