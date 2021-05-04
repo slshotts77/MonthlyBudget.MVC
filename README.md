@@ -35,14 +35,14 @@
   <p align="center">
     This is a collection of challenges presented as the final project for the Red Badge section of the Software Development course at ElevenFifty Academy.
     <br />
-    <a href="https://github.com/slshotts/MonthlyBudget"><strong>Explore the docs »</strong></a>
+    <a href="https://https://elevenfifty.instructure.com/courses/607/assignments/11229"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/slshotts/MonthlyBudget">View Demo</a>
+    <a href="https://github.com/slshotts/MonthlyBudget.MVC">View Demo</a>
     ·
-    <a href="https://github.com/github.com/slshotts/MonthlyBudget/issues">Report Bug</a>
+    <a href="https://github.com/github.com/slshotts/MonthlyBudget.MVC/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github.com/slshotts/MonthlyBudget/issues">Request Feature</a>
+    <a href="https://github.com/github.com/slshotts/MonthlyBudget.MVC/issues">Request Feature</a>
   </p>
 </p>
 
