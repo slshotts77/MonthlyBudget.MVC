@@ -31,7 +31,7 @@ namespace MonthlyBudget.Data
         public virtual Category Category { get; set; }
 
         [ForeignKey(nameof(UtilityCompany))]
-        public int? UtilityCompanyId { get; set; }
+        public int UtilityCompanyId { get; set; }
         public virtual UtilityCompany UtilityCompany { get; set; }
 
         [ForeignKey(nameof(Description))]
@@ -39,7 +39,7 @@ namespace MonthlyBudget.Data
         public virtual Description Description { get; set; }
 
         [ForeignKey(nameof(PayingBy))]
-        public int? PayingById { get; set; }
+        public int PayingById { get; set; }
         public virtual PayingBy PayingBy { get; set; }
     }
 }

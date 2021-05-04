@@ -56,7 +56,7 @@ namespace MonthlyBudget.Services
                 {
                     UtilityCompanyId = entity.UtilityCompanyId,
                     UtilityName = entity.UtilityName,
-                    Entries = entity.Entries.Select(e => CheckingListItem()
+                    Entries = entity.Entries.Select(e => new CheckingListItem()
                     {
                         CheckingId = e.CheckingId,
                         CheckingName = e.CheckingName,

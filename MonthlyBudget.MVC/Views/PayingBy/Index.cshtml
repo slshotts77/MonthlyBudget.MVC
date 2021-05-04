@@ -1,0 +1,99 @@
+﻿@model IEnumerable<MonthlyBudget.Models.PayingByListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PayById)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CashOrCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CashAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CardType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CardNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameOnCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpirationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecurityCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UtilityComapny)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PayingBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayById)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CashOrCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CashAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CardType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CardNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameOnCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpirationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecurityCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UtilityComapny)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayingBy)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PayById }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PayById }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PayById })
+        </td>
+    </tr>
+}
+
+</table>
