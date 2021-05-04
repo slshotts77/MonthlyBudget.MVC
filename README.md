@@ -132,7 +132,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Steve Shotts - slshotts77@gmail.com
 
-Project Link: [https://github.com/slshotts77/MonthyBudget](https://github.com/slshotts77/MonthlyBudget)
+Project Link: [https://github.com/slshotts77/MonthyBudget.MVC](https://github.com/slshotts77/MonthlyBudget.MVC)
 
 
 
