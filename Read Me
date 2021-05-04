@@ -1,0 +1,12 @@
+Monthly Budget API/MVC:
+This program is designed to create a checking account registry. Tables include the ability to add categories, utility companies, descriptions, and payments.
+
+Prerequisites:
+-	Clone the repository to your local computer
+-	Run the application locally on your computer using Visual Studio Community
+
+Running the Application:
+The current version of this application you will need to first create a category, utility company, description, and payment type. Once the previous tables are created create a checking account entry.
+
+Author
+Steve Shotts
