@@ -1,27 +1,5 @@
 # MonthlyBudget.MVC
 
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
-***
-***
-***
-*** To avoid retyping too much info. Do a search and replace for the following:
-*** slshotts77, MonthlyBudget, sacredandarcane, johncaseymcd@gmail.com, Gold Badge Console Challenges, project_description
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 
 <!-- PROJECT LOGO -->
 <br />
@@ -40,8 +18,6 @@
   </p>
 </p>
 
-
-
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
@@ -57,9 +33,7 @@
       <ul>        
         <li><a href="#installation">Installation</a></li>
       </ul>
-    </li>
-    
-    
+    </li>   
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -67,15 +41,12 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 ### Built With
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -92,8 +63,6 @@ To get a local copy up and running follow these simple steps.
    ```sh
    npm install
    ```
-   
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -105,14 +74,10 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-
 
 <!-- CONTACT -->
 ## Contact
@@ -121,8 +86,6 @@ Steve Shotts - slshotts77@gmail.com
 
 Project Link: [https://github.com/slshotts77/MonthyBudget.MVC](https://github.com/slshotts77/MonthlyBudget.MVC)
 
-
-
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 Each of the following has been a great help in the completion of these challenges:
@@ -130,8 +93,6 @@ Each of the following has been a great help in the completion of these challenge
 * [ElevenFifty Academy Staff](https://elevenfifty.org/)
 * [C#/.NET Documentation](https://docs.microsoft.com/en-us/dotnet/csharp/)* 
 * Many long days and nights
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
