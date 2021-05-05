@@ -63,15 +63,16 @@ namespace MonthlyBudget.Services
                                     ChargeDate = e.ChargeDate,
                                     DateCleared = e.DateCleared,
                                     Cleared = e.Cleared,
-                                    
+
                                     UtilityComapny = e.UtilityCompanyId + " " + e.UtilityCompany.UtilityName,
-                                    
+
                                     Category = e.CategoryId + " " + e.Category.CategoryName,
-                                    
+
                                     Description = e.DescriptionId + " " + e.Description.DescriptionName,
-                                    
+
                                     PayingBy = e.PayingById + " " + e.PayingBy.CashOrCard
-                                    });
+                                });
+
                 return query.ToArray();
             }
         }
@@ -113,18 +114,20 @@ namespace MonthlyBudget.Services
                     ctx
                         .Entries
                         .Single(e => e.CheckingId == model.CheckingId && e.OwnerId == _userId);
-                
-                        entity.CheckingName = model.CheckingName;
-                        entity.MonthlyBill = model.MonthlyBill;
-                        entity.ChargeDate = model.ChargeDate;
-                        entity.DateCleared = model.DateCleared;
-                        entity.Cleared = model.Cleared;
-                        entity.ModifiedUtc = DateTimeOffset.UtcNow;
-                        entity.UtilityCompanyId = model.UtilityCompanyId;
-                        entity.CategoryId = model.CategoryId;
-                        entity.DescriptionId = model.DescriptionId;
-                        entity.PayingById = model.PayingById;
-                
+
+
+                entity.CheckingName = model.CheckingName;
+                entity.MonthlyBill = model.MonthlyBill;
+                entity.ChargeDate = model.ChargeDate;
+                entity.DateCleared = model.DateCleared;
+                entity.Cleared = model.Cleared;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.UtilityCompanyId = model.UtilityCompanyId;
+                entity.CategoryId = model.CategoryId;
+                entity.DescriptionId = model.DescriptionId;
+                entity.PayingById = model.PayingById;
+
+
                 return ctx.SaveChanges() == 1;
             }
         }

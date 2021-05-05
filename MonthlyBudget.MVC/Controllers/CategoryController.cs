@@ -11,7 +11,7 @@ using System.Web.Mvc;
 namespace MonthlyBudget.MVC.Controllers
 {
     [Authorize]
-    public class CategoryController :  Controller
+    public class CategoryController : Controller
     {
         // GET: Category Index
         public ActionResult Index()

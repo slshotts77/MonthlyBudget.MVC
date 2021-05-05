@@ -68,11 +68,12 @@ namespace MonthlyBudget.Services
                         Cleared = e.Cleared,
 
                         UtilityComapny = e.UtilityCompany.UtilityCompanyId + " " + e.UtilityCompany.UtilityName,
-                        
+
                         Category = e.Category.CategoryId + " " + e.Category.CategoryName,
-                        
+
                         Description = e.Description.DescriptionId + " " + e.Description.DescriptionName,
-                        
+
+
                         PayingBy = e.PayingBy.PayById + " " + e.PayingBy.PayById
                     }).ToList()
                 };

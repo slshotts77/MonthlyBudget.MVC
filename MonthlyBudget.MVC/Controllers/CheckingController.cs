@@ -70,7 +70,7 @@ namespace MonthlyBudget.MVC.Controllers
                     DateCleared = detail.DateCleared,
                     Cleared = detail.Cleared
                 };
-         return View(model);
+            return View(model);
         }
 
         //Post: Checking/Edit/{id}
