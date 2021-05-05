@@ -73,6 +73,7 @@ namespace MonthlyBudget.Services
 
                         Description = e.Description.DescriptionId + " " + e.Description.DescriptionName,
 
+
                         PayingBy = e.PayingBy.PayById + " " + e.PayingBy.PayById
                     }).ToList()
                 };

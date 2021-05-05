@@ -46,7 +46,7 @@ namespace MonthlyBudget.Services
                     .Categories
                     .SingleOrDefault(e => e.CategoryId == id);
                 var category = new CategoryDetail()
-                {
+                {                    
                     CategoryId = entity.CategoryId,
                     CategoryName = entity.CategoryName,
                     Entries = entity.Entries.Select(e => new CheckingListItem()
@@ -58,11 +58,13 @@ namespace MonthlyBudget.Services
                         DateCleared = e.DateCleared,
                         Cleared = e.Cleared,
 
+
                         UtilityComapny = e.UtilityCompany.UtilityCompanyId + " " + e.UtilityCompany.UtilityName,
 
                         Category = e.Category.CategoryId + " " + e.Category.CategoryName,
 
                         Description = e.Description.DescriptionId + " " + e.Description.DescriptionName,
+
 
                         PayingBy = e.PayingBy.PayById + " " + e.PayingBy.PayById
                     }).ToList()
@@ -77,10 +79,12 @@ namespace MonthlyBudget.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+
                 var entity = ctx.Categories.SingleOrDefault(e => e.CategoryId == id);
                 entity.CategoryName = model.CategoryName;
 
-                return ctx.SaveChanges() == 1;
+
+               return ctx.SaveChanges() == 1;
             }
         }
 

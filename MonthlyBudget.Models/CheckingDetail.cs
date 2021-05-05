@@ -25,8 +25,8 @@ namespace MonthlyBudget.Models
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
-
-
+        
+        
         public string UtilityComapny { get; set; }
 
         public string Category { get; set; }

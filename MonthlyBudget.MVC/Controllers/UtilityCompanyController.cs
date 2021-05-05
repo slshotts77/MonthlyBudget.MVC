@@ -14,7 +14,6 @@ namespace MonthlyBudget.MVC.Controllers
         // GET: Company Index
         public ActionResult Index()
         {
-
             var service = new UtilityCompanyService();
             var model = service.GetCompanies();
             return View(model);

@@ -72,6 +72,7 @@ namespace MonthlyBudget.Services
 
                                     PayingBy = e.PayingById + " " + e.PayingBy.CashOrCard
                                 });
+
                 return query.ToArray();
             }
         }
@@ -114,6 +115,7 @@ namespace MonthlyBudget.Services
                         .Entries
                         .Single(e => e.CheckingId == model.CheckingId && e.OwnerId == _userId);
 
+
                 entity.CheckingName = model.CheckingName;
                 entity.MonthlyBill = model.MonthlyBill;
                 entity.ChargeDate = model.ChargeDate;
@@ -124,6 +126,7 @@ namespace MonthlyBudget.Services
                 entity.CategoryId = model.CategoryId;
                 entity.DescriptionId = model.DescriptionId;
                 entity.PayingById = model.PayingById;
+
 
                 return ctx.SaveChanges() == 1;
             }
