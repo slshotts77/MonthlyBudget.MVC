@@ -12,10 +12,5 @@ namespace MonthlyBudget.Models
         public int CategoryId { get; set; }
         [Display(Name = "Type of expense")]
         public string CategoryName { get; set; }
-        
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
-        [Display(Name = "Modified")]
-        public DateTimeOffset ModifiedUtc { get; set; }
     }
 }

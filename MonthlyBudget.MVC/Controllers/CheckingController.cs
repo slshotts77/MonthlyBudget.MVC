@@ -11,7 +11,6 @@ using System.Web.Services.Description;
 namespace MonthlyBudget.MVC.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/Entry")]
     public class CheckingController : Controller
     {
         // GET: Checking Index
@@ -21,6 +20,7 @@ namespace MonthlyBudget.MVC.Controllers
             var model = service.GetEntries();
             return View(model);
         }
+
         //Get: Checking/Detail/{id}
         public ActionResult Details(int id)
         {
@@ -67,11 +67,12 @@ namespace MonthlyBudget.MVC.Controllers
                     CheckingName = detail.CheckingName,
                     MonthlyBill = detail.MonthlyBill,
                     ChargeDate = detail.ChargeDate,
+                    DateCleared = detail.DateCleared,
                     Cleared = detail.Cleared
                 };
-         return View(model);
+            return View(model);
         }
-        
+
         //Post: Checking/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -121,6 +122,7 @@ namespace MonthlyBudget.MVC.Controllers
 
             return RedirectToAction("Index");
         }
+
         private CheckingService CreateCheckingService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

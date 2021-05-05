@@ -11,9 +11,9 @@ using System.Web.Mvc;
 namespace MonthlyBudget.MVC.Controllers
 {
     [Authorize]
-    public class CategoryController :  Controller
+    public class CategoryController : Controller
     {
-        // GET: Category
+        // GET: Category Index
         public ActionResult Index()
         {
             var service = new CategoryService();
@@ -21,7 +21,7 @@ namespace MonthlyBudget.MVC.Controllers
             return View(model);
         }
 
-        //Get: Category/Create
+        //Get: Category/Create/{id}
         public ActionResult Create()
         {
             return View();
@@ -46,7 +46,7 @@ namespace MonthlyBudget.MVC.Controllers
             return View(model);
         }
 
-        //Get: Category/Detail
+        //Get: Category/Detail/{id}
         public ActionResult Details(int id)
         {
             var service = new CategoryService();
@@ -54,7 +54,7 @@ namespace MonthlyBudget.MVC.Controllers
             return View(category);
         }
 
-        //Get: Category/Edit
+        //Get: Category/Edit/{id}
         public ActionResult Edit(int id)
         {
             var service = new CategoryService();
@@ -63,7 +63,7 @@ namespace MonthlyBudget.MVC.Controllers
             return View(category);
         }
 
-        //Post: Category/Edit
+        //Post: Category/Edit/{id}
         [HttpPost]
         public ActionResult Edit(int id, CategoryEdit model)
         {
@@ -73,7 +73,6 @@ namespace MonthlyBudget.MVC.Controllers
 
             if (service.UpdateCategory(id, model))
             {
-
                 TempData["SaveResult"] = "Category Updated";
                 return RedirectToAction("Index");
             }
@@ -102,6 +101,7 @@ namespace MonthlyBudget.MVC.Controllers
                 TempData["SaveResult"] = "Category Deleted";
                 return RedirectToAction("Index");
             }
+
             ModelState.AddModelError("", "Category could not be updated");
             var model = service.GetCategory(id);
             return View(model);

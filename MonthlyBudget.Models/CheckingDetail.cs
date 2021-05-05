@@ -11,22 +11,16 @@ namespace MonthlyBudget.Models
     public class CheckingDetail
     {
         public int CheckingId { get; set; }
-
-        [Display(Name = "Description of expenditure")]
+        [Display(Name = "Expense Description")]
         public string CheckingName { get; set; }
-
-        [Display(Name = "Check if this a mothly bill")]
+        [Display(Name = "Reoccuring?")]
         public bool MonthlyBill { get; set; }
-
-        [Display(Name = "Date of purchase")]
+        [Display(Name = "Purchase Date")]
         public String ChargeDate { get; set; }
-        [Display(Name = "Date cleared with bank")]
+        [Display(Name = "Date Bank Cleared")]
         public String DateCleared { get; set; }
-        [Display(Name = "Check if cleared with the bank")]
+        [Display(Name = "Bank Note Cleared")]
         public bool Cleared { get; set; }
-
-        //public virtual ICollection<CheckingListItem> ListOfEntries { get; set; } = new List<CheckingListItem>();
-
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified")]
@@ -40,7 +34,5 @@ namespace MonthlyBudget.Models
         public string Description { get; set; }
 
         public string PayingBy { get; set; }
-
-
     }
 }

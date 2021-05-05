@@ -26,12 +26,41 @@
                     {
                         <li>@Html.ActionLink("Checkin Account Registry", "Index", "Checkin Account Registry")</li>
                     }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Checking Entries", "Index", "Checking")</li>
+                    }
+
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Category", "Index", "Category")</li>
                     }
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Description", "Index", "Description")</li>
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Utility Company", "Index", "UtilityCompany")</li>
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Paying By", "Index", "PayingBy")</li>
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
